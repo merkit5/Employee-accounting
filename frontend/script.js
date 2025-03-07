@@ -19,8 +19,35 @@ async function getEmployees() {
         ).join('');
     } catch (error) {
         console.error('Ошибка:', error);
-    }
-    
+    } 
 }
 
+async function addEmployee(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    data.salary = parseFloat(data.salary);
+
+    console.log(data);
+
+    try {
+        const response = await fetch('/api/employee', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        event.target.reset();
+
+        await getEmployees();
+    } catch (error) {
+
+        console.error('Ошибка:', error);
+    }
+}
+
+document.getElementById('addEmpForm').addEventListener('submit', addEmployee);
 document.addEventListener('DOMContentLoaded', getEmployees);
