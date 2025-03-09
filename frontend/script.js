@@ -29,8 +29,6 @@ async function addEmployee(event) {
     const data = Object.fromEntries(formData.entries());
     data.salary = parseFloat(data.salary);
 
-    console.log(data);
-
     try {
         const response = await fetch('/api/employee', {
             method: 'POST',
