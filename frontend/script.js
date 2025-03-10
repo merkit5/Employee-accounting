@@ -16,7 +16,12 @@ async function getEmployees() {
                 <td>${employee.salary}</td>
                 <td>${new Date(employee.employment_date).toLocaleDateString()}</td>
                 <td>
-                    <button onclick="loadEmp(${employee.id})">Редактировать</button>
+                    <button onclick="loadEmployee(${employee.id})" ${!employee.is_employed ? 'disabled' : ''}>
+                        Редактировать
+                    </button>
+                    <button onclick="dismissEmployee(${employee.id})" ${!employee.is_employed ? 'disabled' : ''}>
+                        Уволить
+                    </button>
                 </td>
             </tr>`
         ).join('');
@@ -50,7 +55,7 @@ async function addEmployee(event) {
 }
 
 
-async function loadEmp(id) {
+async function loadEmployee(id) {
     try {
         const response = await fetch(`/api/employee/${id}`);
         const employee = await response.json();
@@ -87,6 +92,18 @@ async function saveEmployee(event) {
 
         const editForm = document.getElementById('editEmpForm');
         editForm.style.display = 'none';
+        await getEmployees();
+    } catch (error) {
+        console.error('Ошибка:', error);
+    }
+}
+
+async function dismissEmployee(id) {
+    try {
+        const response = await fetch(`/api/employee/${id}/dismiss`, {
+            method: 'PUT',
+        });
+
         await getEmployees();
     } catch (error) {
         console.error('Ошибка:', error);
