@@ -9,73 +9,80 @@
 <body>
     <h1 class="title">Сотрудники</h1>
     
-    <h2>Добавить сотрудника</h2>
-    <form id="addEmpForm">
+    <div class="form">
+        <form id="addEmpForm">
 
-        <label>ФИО</label>
-        <input type="text" name="full_name">
+            <h2>Добавить сотрудника</h2>
 
-        <label>Дата рождения</label>
-        <input type="date" name="birth_date">
+            <label>ФИО</label>
+            <input type="text" name="full_name">
 
-        <label>Серия/номер паспорта</label>
-        <input type="text" name="passport">
+            <label>Дата рождения</label>
+            <input type="date" name="birth_date">
 
-        <label>Контактная информация</label>
-        <input type="text" name="phone">
+            <label>Серия/номер паспорта</label>
+            <input type="text" name="passport">
 
-        <label>Адрес проживания</label>
-        <input type="text" name="address">
+            <label>Контактная информация</label>
+            <input type="text" name="phone">
 
-        <label>Отдел</label>
-        <input type="text" name="department">
+            <label>Адрес проживания</label>
+            <input type="text" name="address">
 
-        <label>Должность</label>
-        <input type="text" name="post">
+            <label>Отдел</label>
+            <input type="text" name="department">
 
-        <label>Размер зарплаты</label>
-        <input type="number" name="salary">
+            <label>Должность</label>
+            <input type="text" name="post">
 
-        <label>Дата принятия на работу</label>
-        <input type="date" name="employment_date">
+            <label>Размер зарплаты</label>
+            <input type="number" name="salary">
 
-        <button type="submit">Добавить сотрудника</button>
-    </form>
+            <label>Дата принятия на работу</label>
+            <input type="date" name="employment_date">
 
-    <h2>Редактировать сотрудника</h2>
-    <form id="editEmpForm">
-        <input type="hidden" name="id">
-        <label>ФИО</label>
-        <input type="text" name="full_name">
+            <button type="submit">Добавить сотрудника</button>
+        </form>
 
-        <label>Дата рождения</label>
-        <input type="date" name="birth_date">
+        
+        <form id="editEmpForm">
 
-        <label>Серия/номер паспорта</label>
-        <input type="text" name="passport">
+            <h2>Редактировать сотрудника</h2>
 
-        <label>Контактная информация</label>
-        <input type="text" name="phone">
+            <input type="hidden" name="id">
+            <label>ФИО</label>
+            <input type="text" name="full_name">
 
-        <label>Адрес проживания</label>
-        <input type="text" name="address">
+            <label>Дата рождения</label>
+            <input type="date" name="birth_date">
 
-        <label>Отдел</label>
-        <input type="text" name="department">
+            <label>Серия/номер паспорта</label>
+            <input type="text" name="passport">
 
-        <label>Должность</label>
-        <input type="text" name="post">
+            <label>Контактная информация</label>
+            <input type="text" name="phone">
 
-        <label>Размер зарплаты</label>
-        <input type="number" name="salary">
+            <label>Адрес проживания</label>
+            <input type="text" name="address">
 
-        <label>Дата принятия на работу</label>
-        <input type="date" name="employment_date">
+            <label>Отдел</label>
+            <input type="text" name="department">
 
-        <button type="submit">Сохранить изменения</button>
-        <button type="button" id="cancelEdit">Отмена</button>
-    </form>
+            <label>Должность</label>
+            <input type="text" name="post">
 
+            <label>Размер зарплаты</label>
+            <input type="number" name="salary">
+
+            <label>Дата принятия на работу</label>
+            <input type="date" name="employment_date">
+
+            <button type="submit">Сохранить изменения</button>
+            <button type="button" id="cancelEdit">Отмена</button>
+        </form>
+    </div>
+    
+    
     <table class="empTable">
         <thead>
             <tr>
