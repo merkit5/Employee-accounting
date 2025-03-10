@@ -48,4 +48,18 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+router.put('/:id/dismiss', async (req, res) => {
+    try {
+        const employee = await Employee.findByPk(req.params.id);
+        if (employee) {
+            await employee.update({is_employed: false});
+            res.json(employee);
+        } else {
+            res.status(404).json({ error: 'Employee not found'});
+        }
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
+
 module.exports = router;
